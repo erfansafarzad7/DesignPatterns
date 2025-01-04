@@ -1,6 +1,8 @@
 """
-    Factory is a creational design pattern that provides an interface for creating objects
-    in a superclass, but allows subclasses to alter the type of objects that will be created.
+    Factory
+        - Provides an interface for creating objects in a superclass but allows subclasses
+        to alter the type of objects that will be created.
+
 """
 from abc import ABC, abstractmethod
 
@@ -15,8 +17,9 @@ class File(ABC):
 
     def call_edit(self):
         product = self.make()
-        result = product.edit(self.file)
-        return result
+        return product.edit(self.file)
+
+# ==============================================
 
 
 class JsonFile(File):
@@ -28,6 +31,8 @@ class XmlFile(File):
     def make(self):
         return Xml()
 
+# ==============================================
+
 
 class Json:
     def edit(self, file):
@@ -38,14 +43,16 @@ class Xml:
     def edit(self, file):
         return f'Working Xml On {file}...'
 
+# ==============================================
+
 
 def client(file, format_):
     formats = {
         'json': JsonFile,
         'xml': XmlFile,
     }
-    result = formats[format_](file)
-    return result.call_edit()
+    return formats[format_](file).call_edit()
 
 
-print(client('Example File', 'json'))
+if __name__ == "__main__":
+    print(client('Example File', 'json'))

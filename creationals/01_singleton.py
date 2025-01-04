@@ -17,8 +17,9 @@ class A(metaclass=Singleton):
     pass
 
 
-a = A()
-b = A()
+if __name__ == "__main__":
+    a = A()
+    b = A()
 
-print(id(a))
-print(id(b))
+    print(id(a))
+    print(id(b))

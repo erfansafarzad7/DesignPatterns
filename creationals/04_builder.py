@@ -1,8 +1,7 @@
 """
     Builder
-    - Builder is a creational design pattern that lets you construct complex objects step by step.
-    the pattern allows you produce different types and representations of an object using the same
-    construction code.
+    - Allows constructing complex objects step by step. It lets you produce different types
+    and representations of an object using the same construction code.
 """
 import abc
 
@@ -26,6 +25,8 @@ class Car:
         print(f'Body: {self._body.shape}')
         print(f'Engine: {self._engine.hp}')
         print(f'Wheel: {self._wheel.size}')
+
+# ==============================================
 
 
 class AbstractBuilder(abc.ABC):
@@ -73,6 +74,8 @@ class Bmw(AbstractBuilder):
         wheel.size = 22
         return wheel
 
+# ==============================================
+
 
 class Director:
     _builder = None
@@ -82,22 +85,17 @@ class Director:
 
     def constructor(self):
         car = Car()
-
-        body = self._builder.get_body()
-        car.set_body(body)
-
-        engine = self._builder.get_engine()
-        car.set_engine(engine)
-
-        wheel = self._builder.get_wheel()
-        car.set_wheel(wheel)
-
+        car.set_body(self._builder.get_body())
+        car.set_engine(self._builder.get_engine())
+        car.set_wheel(self._builder.get_wheel())
         return car
 
 
 class Body: shape = None
 class Engine: hp = None
 class Wheel: size = None
+
+# ==============================================
 
 
 def client_builder(builder):
@@ -113,4 +111,5 @@ def client_builder(builder):
     return result.detail()
 
 
-client_builder('benz')
+if __name__ == "__main__":
+    client_builder('benz')

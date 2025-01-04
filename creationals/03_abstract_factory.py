@@ -1,7 +1,7 @@
 """
     Abstract Factory
-    - Abstract factory Patterns serves to provide an interface related/dependent
-    objects without need to specify their actual class.
+    - Provides an interface for creating families of related or dependent objects
+    without specifying their concrete classes.
 
     Car => Benz, Bmw => Suv, Coupe
            Benz Suv => gla
@@ -21,6 +21,8 @@ class Car(ABC):
     def call_coupe(self):
         pass
 
+# ==============================================
+
 
 class Benz(Car):
     def call_suv(self):
@@ -37,6 +39,8 @@ class Bmw(Car):
     def call_coupe(self):
         return M2()
 
+# ==============================================
+
 
 class Suv(ABC):
     @abstractmethod
@@ -48,6 +52,8 @@ class Coupe(ABC):
     @abstractmethod
     def create_coupe(self):
         pass
+
+# ==============================================
 
 
 class Gla(Suv):
@@ -69,6 +75,8 @@ class M2(Coupe):
     def create_coupe(self):
         print('This is your coupe bmw m2...')
 
+# ==============================================
+
 
 def client_suv(order):
     brands = {
@@ -88,5 +96,6 @@ def client_coupe(order):
     coupe.create_coupe()
 
 
-client_suv('benz')
-client_coupe('bmw')
+if __name__ == "__main__":
+    client_suv('benz')
+    client_coupe('bmw')
