@@ -1,7 +1,7 @@
 """
     Facade
-    - a structural design pattern that provides a simplified interface to a library,
-    a framework, or any other complex set of classes.
+        -A structural design pattern that provides a simplified interface to a library,
+        a framework, or any other complex set of classes.
 """
 
 
@@ -31,10 +31,13 @@ class Computer:
         self.memory.load()
         self.ssd.read()
 
+# ==============================================
+
 
 def client_facade():
     computer_facade = Computer()
     computer_facade.start()
 
 
-client_facade()
+if __name__ == "__main__":
+    client_facade()

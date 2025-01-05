@@ -1,8 +1,8 @@
 """
-    Adapter
-    - a structural design pattern that allows objects with incompatible interfaces to collaburate.
+    Adapter Design Pattern
+        - A structural design pattern that allows objects with incompatible interfaces to collaborate.
+        This example demonstrates converting XML data to JSON format for compatibility.
 """
-# pip install xmltodict
 import xmltodict
 
 
@@ -22,6 +22,8 @@ class Adapter:
             obj = xmltodict.parse(f.read())
             return obj
 
+# ==============================================
+
 
 def client_adapter():
     sender = Application().send_request()
@@ -30,4 +32,5 @@ def client_adapter():
     print(receiver)
 
 
-client_adapter()
+if __name__ == "__main__":
+    client_adapter()

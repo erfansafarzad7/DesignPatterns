@@ -1,7 +1,8 @@
 """
     Bridge
-    - a structural design pattern that lets you split a large class into two separate
-    hierarchies - abstraction and implementation - which can be developed independently at each other.
+        -The Bridge pattern is a structural design pattern that separates an abstraction from its implementation,
+        allowing them to vary independently. It helps you split a large class into two separate hierarchies
+        that can be developed and modified independently.
 """
 import abc
 
@@ -39,6 +40,7 @@ class Red(Color):
         print(f'this is a red {name}')
 
 
-blue = Blue()
-circle = Circle(blue)
-circle.show()
+if __name__ == "__main__":
+    blue = Blue()
+    circle = Circle(blue)
+    circle.show()

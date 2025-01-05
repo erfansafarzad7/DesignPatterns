@@ -1,7 +1,7 @@
 """
     Composite
-    - a structural design pattern that lets you compose objects into tree structures
-    and then work with these structures as if they were individual objects.
+        - A structural design pattern that lets you compose objects into tree structures
+        and then work with these structures as if they were individual objects.
 """
 import abc
 
@@ -19,6 +19,8 @@ class Being(abc.ABC):
     @abc.abstractmethod
     def execute(self):
         pass
+
+# ==============================================
 
 
 class Animal(Being):
@@ -48,6 +50,8 @@ class Human(Being):
         for child in self._children:
             child.execute()
 
+# ==============================================
+
 
 class Male(Human):
     def __init__(self, name):
@@ -70,6 +74,8 @@ class Female(Human):
     def execute(self):
         print(f'\tFemale {self.name}')
 
+# ==============================================
+
 
 def client_composite():
     f1 = Female('jane')
@@ -84,4 +90,5 @@ def client_composite():
     a.execute()
 
 
-client_composite()
+if __name__ == "__main__":
+    client_composite()

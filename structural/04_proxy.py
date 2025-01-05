@@ -1,8 +1,8 @@
 """
     Proxy
-    - a structural design pattern that lets provide a substitute or placeholder
-    for another object. A proxy controls access to the original object, allowing you
-    to perform something either before or after the request gets through to the original object.
+        -A structural design pattern that provides a substitute or placeholder for another object.
+        A proxy controls access to the original object, allowing you to perform operations
+        before or after forwarding the request.
 """
 import abc
 import time
@@ -34,7 +34,9 @@ class LogProxy(AbstractServer):
 
     def logging(self):
         with open('log.log', 'a') as log:
-            log.write(f'Request {datetime.datetime.now()}')
+            log.write(f'Request {datetime.datetime.now()}\n')
+
+# ==============================================
 
 
 def client_server(server, proxy):
@@ -43,4 +45,5 @@ def client_server(server, proxy):
     p.receive()
 
 
-client_server(Server, LogProxy)
+if __name__ == "__main__":
+    client_server(Server, LogProxy)

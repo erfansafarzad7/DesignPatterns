@@ -1,7 +1,7 @@
 """
     Decorator
-    - a structural pattern that allows adding new behaviors to objects dynamically
-    by placing them inside special wrapper objects, called decorators.
+        - A structural design pattern that allows adding new behaviors to objects dynamically
+        by placing them inside special wrapper objects, called decorators.
 """
 import abc
 
@@ -40,6 +40,8 @@ class PageAuthDecorator(PageDecorator):
         else:
             print('you are not authenticated')
 
+# ==============================================
+
 
 def client_decorator():
     page = AuthPage()
@@ -47,7 +49,5 @@ def client_decorator():
     authenticated.show()
 
 
-client_decorator()
-
-
-
+if __name__ == "__main__":
+    client_decorator()
