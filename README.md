@@ -85,7 +85,11 @@ git clone https://github.com/erfansafarzad7/DesignPatterns.git
 ```
 cd DesignPatterns
 ```
-3. **Explore the Patterns**
+3. **Install Dependencies**
+```
+pip install -r requirements.txt
+```
+4. **Explore the Patterns**
 ```
 cd patterns/<category>/<pattern_name>
 python example.py
