@@ -1,7 +1,7 @@
 """
     Builder
-    - Allows constructing complex objects step by step. It lets you produce different types
-    and representations of an object using the same construction code.
+        - Allows constructing complex objects step by step. It lets you produce different types
+        and representations of an object using the same construction code.
 """
 import abc
 

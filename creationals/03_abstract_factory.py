@@ -1,13 +1,13 @@
 """
     Abstract Factory
-    - Provides an interface for creating families of related or dependent objects
-    without specifying their concrete classes.
+        - Provides an interface for creating families of related or dependent objects
+        without specifying their concrete classes.
 
-    Car => Benz, Bmw => Suv, Coupe
-           Benz Suv => gla
-           Bmw Suv  => x1
-           Benz Coupe => cls
-           Bmw Coupe  => m2
+        Car => Benz, Bmw => Suv, Coupe
+               Benz Suv => gla
+               Bmw Suv  => x1
+               Benz Coupe => cls
+               Bmw Coupe  => m2
 """
 from abc import ABC, abstractmethod
 

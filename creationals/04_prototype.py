@@ -1,7 +1,7 @@
 """
     Prototype
-    - Allows creating copies of existing objects without making the code dependent on their classes.
-    This approach is useful when object creation is expensive or complex.
+        - Allows creating copies of existing objects without making the code dependent on their classes.
+        This approach is useful when object creation is expensive or complex.
 """
 import copy
 
