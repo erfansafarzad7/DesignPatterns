@@ -1,8 +1,8 @@
 """
     Command
-    - a behavioral design pattern that turns a request into a stand-alone object that
-    contains all information about the request. this transformation lets you pass requests
-    as a method arguments, delay or queue a request's execution, and support undoable operations.
+        - A behavioral design pattern that turns a request into a stand-alone object containing all information
+        about the request. This transformation allows you to parameterize methods with requests,
+        delay or queue a request's execution, and support undoable operations.
 """
 import abc
 
@@ -33,6 +33,8 @@ class ComplexCommand(Command):
         self._receiver.do_something(self._a)
         self._receiver.do_something_else(self._b)
 
+# ==============================================
+
 
 class Receiver:
     def do_something(self, a):
@@ -56,11 +58,14 @@ class Invoker:
         self._on_start.execute()
         self._on_finish.execute()
 
+# ==============================================
 
-invoker = Invoker()
-invoker.set_on_start(SimpleCommand('Say Hi!!'))
 
-receiver = Receiver()
-invoker.set_on_finish(ComplexCommand(receiver, 'Sending Email..', 'Saving Data..'))
+if __name__ == "__main__":
+    invoker = Invoker()
+    invoker.set_on_start(SimpleCommand('Say Hi!!'))
 
-invoker.operation()
+    receiver = Receiver()
+    invoker.set_on_finish(ComplexCommand(receiver, 'Sending Email..', 'Saving Data..'))
+
+    invoker.operation()

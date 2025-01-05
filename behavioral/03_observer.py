@@ -1,7 +1,7 @@
 """
     Observer
-    - a behavioral design pattern that lets you define a subscription mechanism to notify
-    multiple objects about any event that happen to the object they're observing.
+        - A behavioral design pattern that defines a subscription mechanism to notify multiple objects (observers)
+        about any events that happen to the object they are observing (subject).
 """
 import abc
 from random import randrange
@@ -43,6 +43,8 @@ class ConcretePublisher(Publisher):
         print(f'state changed to {self._state}')
         self.notify()
 
+# ==============================================
+
 
 class Observer(abc.ABC):
 
@@ -62,13 +64,16 @@ class ObserverB(Observer):
         if publisher._state > 5:
             print('Observer B reacted to the event')
 
+# ==============================================
 
-publisher = ConcretePublisher()
 
-observer_a = ObserverA()
-observer_b = ObserverB()
+if __name__ == "__main__":
+    publisher = ConcretePublisher()
 
-publisher.subscribe(observer_a)
-publisher.subscribe(observer_b)
+    observer_a = ObserverA()
+    observer_b = ObserverB()
 
-publisher.operation()
+    publisher.subscribe(observer_a)
+    publisher.subscribe(observer_b)
+
+    publisher.operation()

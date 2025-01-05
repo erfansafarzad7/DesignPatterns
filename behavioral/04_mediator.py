@@ -1,8 +1,7 @@
 """
     Mediator
-    - a behavioral design pattern that lets you reduce chaotic dependencies between objects.
-    The pattern restricts direct communications between the objects and forest then to collaborate
-    only via mediator object.
+        - A behavioral design pattern that reduces chaotic dependencies between objects by restricting direct communication
+         between them. Instead, objects collaborate through a mediator object, which centralizes their interactions.
 """
 import abc
 
@@ -23,6 +22,8 @@ class ConcreteMediator(AbstractMediator):
 
     def notify(self, sender, event):
         self.comp_b.receive(sender, event)
+
+# ==============================================
 
 
 class AbstractComponent(abc.ABC):
@@ -76,11 +77,14 @@ class Component3(AbstractComponent):
         print('Component 3 does C.')
         self.notify('C')
 
+# ==============================================
 
-c1 = Component1()
-c2 = Component2()
-c3 = Component3()
 
-mediator = ConcreteMediator(c3, c1)
+if __name__ == "__main__":
+    c1 = Component1()
+    c2 = Component2()
+    c3 = Component3()
 
-c3.do_c()
+    mediator = ConcreteMediator(c3, c1)
+
+    c3.do_c()

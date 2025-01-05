@@ -1,6 +1,7 @@
 """
     Memento
-    - a behavioral design pattern that lets you save and restore the previous state of an object.
+        - A behavioral design pattern that allows you to save and restore the previous state of an object
+        without exposing its internal implementation.
 """
 import abc
 from datetime import datetime
@@ -56,6 +57,8 @@ class ConcreteMemento(Memento):
     def get_date(self):
         return self._date
 
+# ==============================================
+
 
 class Caretaker:
     def __init__(self, originator):
@@ -82,21 +85,23 @@ class Caretaker:
         for memento in self._mementos:
             print(memento.get_name())
 
+# ==============================================
 
-originator = Originator('first state')
-caretaker = Caretaker(originator)
 
-caretaker.backup()
-originator.do_something()
+if __name__ == "__main__":
+    originator = Originator('first state')
+    caretaker = Caretaker(originator)
 
-caretaker.backup()
-originator.do_something()
+    caretaker.backup()
+    originator.do_something()
 
-caretaker.backup()
-originator.do_something()
+    caretaker.backup()
+    originator.do_something()
 
-print()
+    caretaker.backup()
+    originator.do_something()
 
-caretaker.show_history()
+    print('')
 
-caretaker.undo()
+    caretaker.show_history()
+    caretaker.undo()

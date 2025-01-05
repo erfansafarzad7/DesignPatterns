@@ -1,7 +1,7 @@
 """
     State
-    - a behavioral design pattern that lets an object alter its behavior when its internal state changes.
-    it appears as if the object changed irs class.
+        - A behavioral design pattern that allows an object to change its behavior when its internal state changes.
+        It appears as if the object has changed its class.
 """
 import abc
 
@@ -40,6 +40,8 @@ class Floor(abc.ABC):
     def push_up_btn(self):
         pass
 
+# ==============================================
+
 
 class FirstFloor(Floor):
     def push_down_btn(self):
@@ -58,12 +60,15 @@ class SecondFloor(Floor):
     def push_up_btn(self):
         print('Already in the top floor!')
 
+# ==============================================
 
-e = Elevator(FirstFloor())
-e.show_state()
-e.go_up()
-e.show_state()
-e.go_up()
-e.go_down()
-e.show_state()
-e.go_down()
+
+if __name__ == "__main__":
+    e = Elevator(FirstFloor())
+    e.show_state()
+    e.go_up()
+    e.show_state()
+    e.go_up()
+    e.go_down()
+    e.show_state()
+    e.go_down()

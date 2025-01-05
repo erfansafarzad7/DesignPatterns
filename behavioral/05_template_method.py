@@ -1,7 +1,7 @@
 """
     Template Method
-    - a behavioral design pattern that defines the skeleton of an algorithm in the superclass
-    but lets subclasses override specific steps of the algorithm without changing its structure.
+        - A behavioral design pattern that defines the skeleton of an algorithm in a superclass but allows subclasses
+        to override specific steps of the algorithm without changing its overall structure.
 """
 import abc
 
@@ -27,6 +27,8 @@ class Top(abc.ABC):
     def fourth_require(self):
         pass
 
+# ==============================================
+
 
 class One(Top):
     def third_require(self):
@@ -43,9 +45,12 @@ class Two(Top):
     def fourth_require(self):
         print('This is fourth require from Two')
 
+# ==============================================
+
 
 def client(klass):
     klass.template_method()
 
 
-client(Two())
+if __name__ == "__main__":
+    client(Two())

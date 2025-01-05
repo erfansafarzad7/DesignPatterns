@@ -1,7 +1,7 @@
 """
     Strategy
-    - a behavioral design pattern that lets you define a family of algorithms,
-    put rach pf them into a separate class, and make their objects interchangeable.
+        - A behavioral design pattern that enables you to define a family of algorithms,
+        encapsulate each one in a separate class, and make their objects interchangeable.
 """
 import abc
 
@@ -16,6 +16,8 @@ class Read:
 
     def read(self):
         return self._direction.direct(self.sentence)
+
+# ==============================================
 
 
 class Direction(abc.ABC):
@@ -35,9 +37,10 @@ class Left(Direction):
         print(data[::1])
 
 
-c = Read('Hello World')
-c.set_direction(Right())
-c.read()
+if __name__ == "__main__":
+    c = Read('Hello World!')
+    c.set_direction(Right())
+    c.read()
 
-c.set_direction(Left())
-c.read()
+    c.set_direction(Left())
+    c.read()

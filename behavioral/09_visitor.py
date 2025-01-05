@@ -1,7 +1,7 @@
 """
     Visitor
-    - a behavioral design pattern that allows adding new behaviors to existing class hierarchy
-    without altering any existing code.
+        - A behavioral design pattern that allows you to add new behaviors to existing class hierarchies
+        without altering their code. It separates algorithms from the objects on which they operate.
 """
 import abc
 
@@ -29,6 +29,8 @@ class Plane(PublishVehicle):
     def order_ticket(self, ordering):
         ordering.plane_ticket(self)
 
+# ==============================================
+
 
 class Ticket(abc.ABC):
 
@@ -50,11 +52,16 @@ class Order(Ticket):
         print(f'This is a train ticket to {train.dest}')
 
     def bus_ticket(self, bus):
-        print(f'This is a train ticket to {bus.dest}')
+        print(f'This is a bus ticket to {bus.dest}')
 
     def plane_ticket(self, plane):
-        print(f'This is a train ticket to {plane.dest}')
+        print(f'This is a plane ticket to {plane.dest}')
+
+# ==============================================
 
 
-o = Order()
-Train('Tehran').order_ticket(o)
+if __name__ == "__main__":
+    o = Order()
+    Train('Tehran').order_ticket(o)
+    Bus('Shiraz').order_ticket(o)
+    Plane('Mashhad').order_ticket(o)
